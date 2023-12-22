@@ -115,7 +115,6 @@ stripe.customers.retrieve(data.customer).then((customer)=>{
 const getOrder = async(req,res)=>{
     try {
         let userid = req.user._id
-        console.log(userid);
         const data  = await orders.find({userId:userid}).populate('courseId').populate('testId');
         res.status(200).json({success:true,data})
         
