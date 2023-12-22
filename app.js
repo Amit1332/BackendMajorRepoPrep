@@ -11,6 +11,10 @@ app.use(express.json());
 dotenv.config()
 
   
+app.use(cors({
+    origin:'*'
+}))
+
 
 
 app.use('/api/v1', indexRoute)
