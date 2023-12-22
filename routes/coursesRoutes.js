@@ -5,7 +5,7 @@ const Router = require('express').Router()
 
 
 Router.get('/',allCourse)
-Router.post('/create', auth,createCourse)
+Router.post('/create',createCourse)
 
 
 

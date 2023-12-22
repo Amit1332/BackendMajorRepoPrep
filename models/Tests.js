@@ -5,12 +5,17 @@ const schema  = new mongoose.Schema({
     name:{
         type:String,
         default:null,
-        required:[true,"please enter course name"]
+        required:[true,"please enter test name"]
     },
     price:{
         type:String,
-        required:[true,"please enter course price"],
+        required:[true,"please enter test price"],
         default:0
+    },
+    type:{
+        type:String,
+        required:true
+
     },
     start_data:{
             type:Date,
@@ -24,16 +29,11 @@ const schema  = new mongoose.Schema({
             type:Boolean,
             default:false
      },
-     enroll:{
-        type:Boolean,
-        default:false
+     img_url:{
+        type:String,
+        required:true
      },
-    //  user:{
-    //     type: mongoose.Schema.Types.ObjectId, 
-    //     ref:'user',
-    //     required:true
-
-    //   },
+    
      deleted_At:{
         type:Date,
         default:null
@@ -50,8 +50,8 @@ const schema  = new mongoose.Schema({
 
 })
 
-const courses = new mongoose.model('courses', schema)
+const tests = new mongoose.model('tests', schema)
 
 schema.set('timestamps', true)
 
-module.exports= courses
+module.exports= tests

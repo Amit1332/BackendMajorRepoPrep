@@ -1,4 +1,4 @@
-const mongoose  = requrie('mongoose')
+const mongoose  = require('mongoose')
 const validator = require('validator')
 
 
@@ -28,6 +28,14 @@ const schema = new mongoose.Schema({
         type:String,
         default:null,
         required:[true ,"please enter password"]
+    },
+    colleges:{
+        type:String,
+        default:null,
+    },
+    passyear:{
+        type:String,
+        default:null,
     },
     deleted_At:{
         type:Date,
