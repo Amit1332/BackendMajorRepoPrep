@@ -44,7 +44,7 @@ const login =async (req,res)=>{
 
 const signup =async (req,res)=>{
     const data = req.body
-    if(!data.mob || !data.email || !data.password){
+    if(!data.email || !data.password){
         return res.json({success:false,info:"please fill with email and Password"})
     
     }
