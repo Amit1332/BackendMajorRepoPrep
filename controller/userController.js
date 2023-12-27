@@ -4,8 +4,9 @@ const User = require('../models/user')
 
 const profile = async(req,res)=>{
     try {
-     const userDetail = req.user
-      res.send(userDetail)
+     const useremail = req.user.email
+     const user = await User.findOne({email:useremail})
+     res.status(200).json({success:true,user})
     } catch (error) {
         console.log(error);
     }
@@ -55,7 +56,9 @@ const signup =async (req,res)=>{
      data.password =await hashPassword(data.password)
 
      User.create(data)
-    const token =await generateToken(data)
+     
+    const setuserToken =await User.findOne({email:data.email})
+    const token =await generateToken(setuserToken)
     res.status(200).json({success:true,msg:"Register Successfully", token:token})
 
 }
