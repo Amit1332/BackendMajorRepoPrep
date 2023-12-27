@@ -57,15 +57,12 @@ const signup =async (req,res)=>{
         return res.json({success:false,info:"user already exist"})
     }
      data.password =await hashPassword(data.password)
+        const userData =  await User.create(data)
 
-     User.create(data)
-
-    const setuserToken =await User.findOne({email:data.email})
-    if(setuserToken){
-        const token =await generateToken(setuserToken)
-         res.status(200).json({success:true,msg:"Register Successfully", token:token})
+    if(userData){
+        const token =await generateToken(userData)
+        res.status(200).json({success:true,msg:"Register Successfully", token:token})
     }
-    
 
 }
 
