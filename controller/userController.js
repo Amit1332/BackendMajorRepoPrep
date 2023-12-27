@@ -65,10 +65,7 @@ const signup =async (req,res)=>{
         const token =await generateToken(setuserToken)
          res.status(200).json({success:true,msg:"Register Successfully", token:token})
     }
-    else{
-        return res.json({success:false,info:"Invalid User"})
-        
-    }
+    
 
 }
 
